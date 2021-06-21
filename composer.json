@@ -1,6 +1,6 @@
 {
-    "name": "wbraganca/yii2-dynamicform",
-    "description": "It is widget to yii2 framework to clone form elements in a nested manner, maintaining accessibility.",
+    "name": "zarkasi/yii2-dynamicform",
+    "description": "It Is Forked Form wbraganca/yii2-dynamicform",
     "keywords": [
         "wbraganca",
         "yii2",
