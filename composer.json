@@ -20,6 +20,7 @@
         "wiki": "https://github.com/wbraganca/yii2-dynamicform/wiki/",
         "source": "https://github.com/wbraganca/yii2-dynamicform"
     },
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Wanderson Bragança",
