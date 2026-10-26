@@ -1,6 +1,16 @@
 # yii2-dynamicform change Log
 
 
+## Unreleased
+
+- BREAKING: Dropped support for all PHP versions below 8.5.12 (vulnerable to php2shell CVE-2026-109618 / CVE-2026-109619). `composer.json` now requires `php: ~8.5.12`.
+- BREAKING: `symfony/dom-crawler` and `symfony/css-selector` constraints updated to `^7.4 || ^8.0`.
+- Enh: Added support for PHP 8.5.
+- Bug: Fixed `removeItems()` to return the `<body>` fragment instead of a full HTML document (was breaking re-insertion into the page DOM).
+- Bug: Guarded against a crash in `run()` when a nested widget has zero items (empty crawler result no longer attempts `importNode(null)`).
+- Note: Zero-item forms have no default/fallback clone template for the add-item button — see README "Known limitation: zero-item forms".
+
+
 ## [v2.0.3 (2020-05-18)](https://github.com/wbraganca/yii2-dynamicform/compare/v2.0.3...v2.0.2)
 
 - Enh: Updated composer.json ('symfony/dom-crawler': '~2.8|~3.0' and 'symfony/css-selector': '~2.8|~3.0').
