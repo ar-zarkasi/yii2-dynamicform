@@ -3,3 +3,6 @@
 !.gitignore
 docs/
 vendor
+.phpunit.result.cache
+/.idea
+/.vscode
