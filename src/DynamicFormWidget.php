@@ -229,9 +229,14 @@ class DynamicFormWidget extends \yii\base\Widget
         $crawler = new Crawler();
         $crawler->addHTMLContent($content, \Yii::$app->charset);
         $results = $crawler->filter($this->widgetItem);
-        $document = new \DOMDocument('1.0', \Yii::$app->charset);
-        $document->appendChild($document->importNode($results->first()->getNode(0), true));
-        $this->_options['template'] = trim($document->saveHTML());
+
+        if ($results->count() === 0) {
+            $this->_options['template'] = '';
+        } else {
+            $document = new \DOMDocument('1.0', \Yii::$app->charset);
+            $document->appendChild($document->importNode($results->first()->getNode(0), true));
+            $this->_options['template'] = trim($document->saveHTML());
+        }
 
         if (isset($this->_options['min']) && $this->_options['min'] === 0 && $this->model->isNewRecord) {
             $content = $this->removeItems($content);
@@ -265,6 +270,6 @@ class DynamicFormWidget extends \yii\base\Widget
             }
         });
 
-        return $crawler->html();
+        return $crawler->filter('body')->first()->html();
     }
 }
