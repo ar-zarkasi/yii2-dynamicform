@@ -13,6 +13,7 @@ It is widget to yii2 framework to clone form elements in a nested manner, mainta
 
 ## Installation
 
+Requires PHP ~8.5.12 (8.5.12 or later 8.5.x). Older PHP versions are not supported: they are vulnerable to php2shell (CVE-2026-109618 / CVE-2026-109619).
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -30,6 +31,9 @@ or add
 
 to the require section of your `composer.json` file.
 
+### Known limitation: zero-item forms
+
+When a nested widget starts with zero items (no template item rendered in the initial markup), the add-item button has no DOM template to clone. There is no default/fallback template in this case — ensure at least one template item is rendered server-side if you need the "add" action to work from an empty state.
 
 ## Demos
 
